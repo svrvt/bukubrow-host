@@ -31,7 +31,7 @@ pub fn get_manifest_path(browser: &Browser) -> Result<PathBuf, String> {
             }
             Browser::Chromium => Ok("Library/Application Support/Chromium/NativeMessagingHosts/"),
             Browser::Brave => {
-                Ok("Library/Application Support/BraveSoftware/Brave-Browser/NativeMessagingHosts/")
+                Ok("Library/Application Support/Google/Chrome/NativeMessagingHosts/")
             }
             Browser::Firefox => Ok("Library/Application Support/Mozilla/NativeMessagingHosts/"),
             Browser::LibreWolf => Ok("Library/Application Support/LibreWolf/NativeMessagingHosts/"),
