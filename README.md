@@ -8,20 +8,21 @@ USAGE:
     bukubrow [FLAGS] [OPTIONS]
 
 FLAGS:
-    -h, --help                 Prints help information
-        --install-brave        Install the native messaging host for Brave
-        --install-chrome       Install the native messaging host for Chrome
-        --install-chromium     Install the native messaging host for Chromium
-        --install-edge         Install the native messaging host for Edge
-        --install-firefox      Install the native messaging host for Firefox
-        --install-librewolf    Install the native messaging host for LibreWolf
-        --install-vivaldi      Install the native messaging host for Vivaldi
-    -l, --list                 Print all bookmarks in a list to stdout
-    -V, --version              Prints version information
+    -h, --help                     Prints help information
+        --install-brave            Install the native messaging host for Brave
+        --install-chrome           Install the native messaging host for Chrome
+        --install-chromium         Install the native messaging host for Chromium
+        --install-edge             Install the native messaging host for Edge
+        --install-firefox          Install the native messaging host for Firefox
+        --install-librewolf        Install the native messaging host for LibreWolf
+        --install-vivaldi          Install the native messaging host for Vivaldi
+        --install-yandex-browser   Install the native messaging host for Yandex Browser
+    -l, --list                     Print all bookmarks in a list to stdout
+    -V, --version                  Prints version information
 
 OPTIONS:
-        --install-dir <DIR>    Specify a custom manifest installation directory
-    -o, --open <ID[,ID]>       Open bookmark(s) in the browser by ID
+        --install-dir <DIR>        Specify a custom manifest installation directory
+    -o, --open <ID[,ID]>           Open bookmark(s) in the browser by ID
 ```
 
 ## Prerequisites

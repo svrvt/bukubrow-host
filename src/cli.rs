@@ -28,6 +28,7 @@ pub fn init() -> Result<Option<Argument>, CliError> {
     let brave_arg = "install-brave";
     let vivaldi_arg = "install-vivaldi";
     let edge_arg = "install-edge";
+    let yandex_arg = "install-yandex-browser";
     let dir_arg = "install-dir";
     let list_arg = "list";
     let open_arg = "open";
@@ -70,6 +71,11 @@ pub fn init() -> Result<Option<Argument>, CliError> {
             Arg::new(edge_arg)
                 .long("--install-edge")
                 .about("Install the native messaging host for Edge"),
+        )
+        .arg(
+            Arg::new(yandex_arg)
+                .long("--install-yandex-browser")
+                .about("Install the native messaging host for Yandex Browser"),
         )
         .arg(
             Arg::new(dir_arg)
@@ -131,6 +137,9 @@ pub fn init() -> Result<Option<Argument>, CliError> {
     }
     if matches.is_present(edge_arg) {
         return Ok(Some(Argument::InstallBrowserHost(Browser::Edge, dir)));
+    }
+    if matches.is_present(yandex_arg) {
+        return Ok(Some(Argument::InstallBrowserHost(Browser::YandexBrowser, dir)));
     }
 
     Ok(None)

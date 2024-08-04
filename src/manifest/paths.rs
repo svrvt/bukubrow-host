@@ -10,6 +10,7 @@ pub enum Browser {
     LibreWolf,
     Vivaldi,
     Edge,
+    YandexBrowser,
 }
 
 pub fn get_manifest_path(browser: &Browser) -> Result<PathBuf, String> {
@@ -24,6 +25,7 @@ pub fn get_manifest_path(browser: &Browser) -> Result<PathBuf, String> {
             Browser::LibreWolf => Ok(".librewolf/native-messaging-hosts/"),
             Browser::Vivaldi => Ok(".config/vivaldi/NativeMessagingHosts/"),
             Browser::Edge => Ok(".config/microsoft-edge-dev/NativeMessagingHosts/"),
+            Browser::YandexBrowser => Ok(".config/yandex-browser/NativeMessagingHosts/"),
         },
         OS::MacOS => match browser {
             Browser::Chrome => {
@@ -37,6 +39,9 @@ pub fn get_manifest_path(browser: &Browser) -> Result<PathBuf, String> {
             Browser::LibreWolf => Ok("Library/Application Support/LibreWolf/NativeMessagingHosts/"),
             Browser::Vivaldi => Ok("Library/Application Support/Vivaldi/NativeMessagingHosts/"),
             Browser::Edge => Ok("Library/Microsoft/Edge/NativeMessagingHosts/"),
+            Browser::YandexBrowser => {
+                Ok("Library/Application Support/Yandex/YandexBrowser/NativeMessagingHosts/")
+            }
         },
         OS::Windows => match browser {
             // Only the registry key matters on Windows, so just use the standard appdata paths.
@@ -46,6 +51,7 @@ pub fn get_manifest_path(browser: &Browser) -> Result<PathBuf, String> {
                 Ok(r"AppData\Roaming\Mozilla\NativeMessagingHosts\")
             }
             Browser::Edge => Ok(r"AppData\Local\Microsoft\Edge\NativeMessagingHosts\"),
+            Browser::YandexBrowser => Ok(r"AppData\Local\Yandex\YandexBrowser\NativeMessagingHosts\"),
             browser => Err(format!("{:?} is not yet supported on Windows.", browser)),
         },
         os => Err(format!("Platform \"{}\" is not yet supported.", os)),
@@ -60,6 +66,7 @@ pub fn get_regkey_path(browser: &Browser) -> Option<&'static str> {
         Browser::Chrome => Some(r"Software\Google\Chrome\NativeMessagingHosts"),
         Browser::Firefox | Browser::LibreWolf => Some(r"Software\Mozilla\NativeMessagingHosts"),
         Browser::Edge => Some(r"Software\Microsoft\Edge\NativeMessagingHosts"),
+        Browser::YandexBrowser => Some(r"Software\Yandex\YandexBrowser\NativeMessagingHosts"),
         _ => None,
     }
 }
